@@ -13,7 +13,7 @@ combining MODIS LST, Sentinel-2 Vegetation data, and OpenWeatherMap metrics.
 @st.cache_data
 def load_data():
     try:
-        return pd.read_csv("../dataset/processed_urban_heat.csv")
+        return pd.read_csv("dataset/processed_urban_heat.csv")
     except:
         return None
 
