@@ -26,7 +26,7 @@ def generate_datasets(output_dir="dataset/"):
         'longitude': lons,
         'LST_day': lst,
         'LST_night': lst - 8.0 + np.random.normal(0, 1.0, n_samples), # Cooler at night
-        'timestamp': pd.date_range(start='2023-01-01', periods=n_samples, freq='H')
+        'timestamp': pd.date_range(start='2023-01-01', periods=n_samples, freq='h')
     })
     
     # 2. Sentinel-2 Urban Features (NDVI, NDBI)
@@ -50,7 +50,7 @@ def generate_datasets(output_dir="dataset/"):
     
     # 3. OpenWeatherMap Historical (Ambient Temperature)
     weather_df = pd.DataFrame({
-        'timestamp': pd.date_range(start='2023-01-01', periods=n_samples, freq='H'),
+        'timestamp': pd.date_range(start='2023-01-01', periods=n_samples, freq='h'),
         'ambient_temp': 22.0 + np.sin(np.linspace(0, 10*np.pi, n_samples)) * 5 + np.random.normal(0, 1, n_samples),
         'humidity': np.random.uniform(30, 80, n_samples),
         'wind_speed': np.random.uniform(0, 10, n_samples)
